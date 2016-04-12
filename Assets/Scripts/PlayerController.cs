@@ -29,17 +29,22 @@ public class PlayerController : MonoBehaviour {
 	public AudioSource hurtSound;
 
 	public IconProgressBar healthBar;
-	private float currentHealth;
+	public static float currentHealth;
+	public static int HEALTH_MAX = 5;
 
 	public Image targetImage;
 	public Sprite treasureBox;
 
 	public GameObject targetTreasureBox;
 
-	private bool hasRocket = false;
-	private int RocketInStock = 0;
-	private const int ROCKET_MAX = 3;
+	public static bool hasRocket = false;
+	public static int RocketInStock = 0;
+	public static int ROCKET_MAX = 3;
 	public Text rocketText;
+
+
+	public static bool RocketHint;
+	public static bool HealthHint;
 
 	Animator anim;
 	void Start ()
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		speed = default_speed;
 //		healthBar.currentValue = 1;
-		currentHealth = 5;
+		currentHealth = HEALTH_MAX;
 //		arrow.GetComponents<WaitForSecondsExample> () [0].show = false;
 //		Debug.Log (currentHealth);
 
@@ -60,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
+		healthBar.currentValue = currentHealth;
 		rocketText.text = "X " + RocketInStock;
 
 //		Debug.Log (speed);
@@ -242,14 +248,18 @@ public class PlayerController : MonoBehaviour {
 
 //			GameObject arrow = transform.FindChild ("arrow_z").gameObject;
 //			arrow.GetComponents<WaitForSecondsExample> () [0].show = true;
-			hasRocket = true;
-			RocketInStock = ROCKET_MAX;
+
+//			hasRocket = true;
+//			RocketInStock = ROCKET_MAX;
+
+			RocketHint = true;
 		}
 		if (other.gameObject.CompareTag ("AidBox")) 
 		{
 			other.gameObject.SetActive (false);
-			currentHealth = 5;
-			healthBar.currentValue = currentHealth;
+//			currentHealth = HEALTH_MAX;
+//			healthBar.currentValue = currentHealth;
+			HealthHint = true;
 		}
 		if (other.gameObject.CompareTag ("SteinMamba")) {
 			other.gameObject.SetActive (false);
