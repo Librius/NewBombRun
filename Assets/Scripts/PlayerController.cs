@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		speed = default_speed;
 //		healthBar.currentValue = 1;
-		currentHealth = healthBar.maxValue;
+		currentHealth = 5;
 //		arrow.GetComponents<WaitForSecondsExample> () [0].show = false;
 //		Debug.Log (currentHealth);
 
@@ -182,6 +182,7 @@ public class PlayerController : MonoBehaviour {
 		{
 //			rb.gameObject.SetActive (false);
 			currentHealth -= 1;
+			Debug.Log (currentHealth);
 //			currentHealth = 0;
 			hurtSound.Play();
 			healthBar.currentValue = currentHealth;
@@ -223,7 +224,7 @@ public class PlayerController : MonoBehaviour {
 			hasKey = true;
 			targetImage.sprite = treasureBox;
 
-			GameObject arrow = transform.FindChild ("arrow_z").gameObject;
+			GameObject arrow = transform.FindChild ("arrow").gameObject;
 			arrow.GetComponents<ArrowController> () [0].target = targetTreasureBox;
 		}
 		if (other.gameObject.CompareTag ("Arrow"))
@@ -231,7 +232,7 @@ public class PlayerController : MonoBehaviour {
 //			print ("here");
 			other.gameObject.SetActive (false);
 
-			GameObject arrow = transform.FindChild ("arrow_z").gameObject;
+			GameObject arrow = transform.FindChild ("arrow").gameObject;
 			arrow.GetComponents<WaitForSecondsExample> () [0].show = true;
 		}
 		if (other.gameObject.CompareTag ("Rocket"))
