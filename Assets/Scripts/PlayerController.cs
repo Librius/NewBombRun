@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("AidBox")) 
 		{
 			other.gameObject.SetActive (false);
-			currentHealth = healthBar.maxValue;
+			currentHealth = 5;
 			healthBar.currentValue = currentHealth;
 		}
 		if (other.gameObject.CompareTag ("SteinMamba")) {
