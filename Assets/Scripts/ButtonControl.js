@@ -23,7 +23,7 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  
  function TheMainMenu () {
  if(GUILayout.Button("Main Menu",  GUILayout.Width(580), GUILayout.Height(100))){
- Application.LoadLevel("MainMenu");
+ Application.LoadLevel("MenuScene");
  }
  if(GUILayout.Button("Restart",  GUILayout.Width(580), GUILayout.Height(100))){
  Application.LoadLevel(Application.loadedLevel);

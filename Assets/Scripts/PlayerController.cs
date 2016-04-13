@@ -198,6 +198,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log ("Collision");
 		speed = 0;
 		if (collision.gameObject.CompareTag ("Enermies"))
 		{
@@ -227,7 +228,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) 
 	{
 
-//		Debug.Log ("there");
+		Debug.Log ("there");
 		if (other.gameObject.CompareTag ("Treasure Box"))
 		{
 			speed = 0;
