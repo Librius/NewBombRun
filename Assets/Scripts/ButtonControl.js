@@ -47,13 +47,30 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  	Application.LoadLevel("GameSelect");
  }
 
+ function ExitBtnClicked(){
+    Application.Quit();
+ }
+
+ function MainMenuBtnClicked(){
+    Application.Quit();
+    Application.LoadLevel("MenuScene");
+ }
+
  function StoryBtnClicked(){
  	Debug.Log("Story Clicked");
  	Application.LoadLevel("Story");
  }
 
+ function CityBtnClicked(){
+ 	Application.LoadLevel("City");
+ }
+
+ function AgainBtnClicked(){
+ 	Application.LoadLevel(Application.loadedLevel);
+ }
+
  function BackBtnClicked(){
  	Debug.Log("Back Clicked");
- 	Application.LoadLevel("MainMenu");
+ 	Application.LoadLevel("MenuScene");
  }
 

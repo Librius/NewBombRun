@@ -261,12 +261,12 @@ public class PlayerController : MonoBehaviour {
 //			healthBar.currentValue = currentHealth;
 			HealthHint = true;
 		}
-		if (other.gameObject.CompareTag ("SteinMamba")) {
-			other.gameObject.SetActive (false);
-			transform.GetChild (0).gameObject.SetActive (false);
-			transform.GetChild (1).gameObject.SetActive (true);
-		}
-			
+//		if (other.gameObject.CompareTag ("SteinMamba")) {
+//			other.gameObject.SetActive (false);
+//			transform.GetChild (0).gameObject.SetActive (false);
+//			transform.GetChild (1).gameObject.SetActive (true);
+//		}
+//			
 	}
 
 //	void showWin(){
