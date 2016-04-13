@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			KeyHint.transform.position = Vector3.MoveTowards (KeyHint.transform.position, targetImage.transform.position, 5);
 		}
-		if (KeyHint.transform.position.Equals (targetImage.transform.position)) 
+		if (KeyHint!=null && KeyHint.transform.position.Equals (targetImage.transform.position)) 
 		{
 			targetImage.sprite = treasureBox;
 			KeyHint.gameObject.SetActive (false);
