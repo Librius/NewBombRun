@@ -5,6 +5,7 @@ public class CityPlayerController : MonoBehaviour {
 
 	public Sprite littleWhiteRabbit;
 	public GameObject finalGoal;
+	public Canvas canvas;
 	// Use this for initialization
 	void Start () {
 	
@@ -35,6 +36,7 @@ public class CityPlayerController : MonoBehaviour {
 			GetComponent<PlayerController> ().speed = 0;
 			transform.GetChild (0).gameObject.SetActive (true);
 			transform.GetChild (1).gameObject.SetActive (false);
+			canvas.GetComponent<Animator> ().SetTrigger ("GameSuccess");
 		}
 
 	}

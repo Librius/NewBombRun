@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (healthBar.currentValue == 0) {
+		if (healthBar.currentValue <= 0) {
 			anim.SetTrigger("GameOver");
 		}
 	}

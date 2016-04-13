@@ -51,7 +51,7 @@ public class GetToolHint : MonoBehaviour {
 		}
 		if (hh != null && hh.transform.position.Equals (HealthDestination.transform.position)) 
 		{
-			PlayerController.currentHealth = PlayerController.HEALTH_MAX;
+			PlayerController.currentHealth = 5;
 			//PlayerController.healthBar.currentValue = PlayerController.currentHealth;
 			hh.gameObject.SetActive(false);
 			hh = null;

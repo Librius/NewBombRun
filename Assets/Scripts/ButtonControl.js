@@ -1,25 +1,25 @@
 ﻿#pragma strict
 
-var isPause = false;
+//var isPause = false;
 var MainMenu : Rect = Rect(80, 80, 1200, 1200);
   
  function Update () {
 //  if( Input.GetKeyDown(KeyCode.Escape))
 //    {
 //       isPause = !isPause;
-       if(isPause)
-          Time.timeScale = 0;
-       else
-          Time.timeScale = 1;
+//       if(isPause)
+//          Time.timeScale = 0;
+//       else
+//          Time.timeScale = 1;
 //    }
 //	Debug.Log(isPause);
  }
   
- function OnGUI()
- {
-    if(isPause)
-        GUI.Window(0, MainMenu, TheMainMenu, "Pause Menu");
- }
+// function OnGUI()
+// {
+//    if(isPause)
+//        GUI.Window(0, MainMenu, TheMainMenu, "Pause Menu");
+// }
  
  function TheMainMenu () {
  if(GUILayout.Button("Main Menu",  GUILayout.Width(580), GUILayout.Height(100))){
@@ -34,12 +34,7 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  }
 
  function PauseButtonClicked(){
- 	Debug.Log("Pause Clicked");
- 	isPause = !isPause;
-       if(isPause)
-          Time.timeScale = 0;
-       else
-          Time.timeScale = 1;
+
  }
 
  function PlayBtnClicked(){
