@@ -47,7 +47,8 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  }
 
  function MainMenuBtnClicked(){
-    Application.Quit();
+//    Application.Quit();
+	Time.timeScale = 1;
     Application.LoadLevel("MenuScene");
  }
 
@@ -61,6 +62,7 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  }
 
  function AgainBtnClicked(){
+ 	Time.timeScale = 1;
  	Application.LoadLevel(Application.loadedLevel);
  }
 

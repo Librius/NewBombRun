@@ -7,10 +7,13 @@ public class PauseButtonClicked : MonoBehaviour {
 	private bool pause = false;
 	// Use this for initialization
 	void Start () {
+		pause = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (Time.time);
+		Debug.Log (pause);
 		if (pause) {
 			Time.timeScale = 0;
 			pause = false;

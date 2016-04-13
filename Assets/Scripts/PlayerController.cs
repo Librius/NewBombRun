@@ -82,16 +82,16 @@ public class PlayerController : MonoBehaviour {
 		//throw bomb
 		// comment for PC
 
-		if (Input.GetButtonDown("Fire1")) {
-			Instantiate (shot, shot_spawn.position, shot_spawn.rotation);
-//			Debug.Log (shot_spawn.rotation);
-
-			//used a rocket
-			if(RocketInStock > 0)
-				RocketInStock -- ;
-
-			shootSound.Play ();
-	        }
+//		if (Input.GetButtonDown("Fire1")) {
+//			Instantiate (shot, shot_spawn.position, shot_spawn.rotation);
+////			Debug.Log (shot_spawn.rotation);
+//
+//			//used a rocket
+//			if(RocketInStock > 0)
+//				RocketInStock -- ;
+//
+//			shootSound.Play ();
+//	        }
 
 		//float moveHorizontal = Input.GetAxis ("Horizontal");
 		//float moveVertical = Input.GetAxis ("Vertical");
