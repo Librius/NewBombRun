@@ -32,6 +32,9 @@ public class CityPlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("LittleWhiteRabbit"))
 		{
 			Debug.Log ("Win");
+			GetComponent<PlayerController> ().speed = 0;
+			transform.GetChild (0).gameObject.SetActive (true);
+			transform.GetChild (1).gameObject.SetActive (false);
 		}
 
 	}
