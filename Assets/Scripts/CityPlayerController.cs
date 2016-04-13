@@ -20,8 +20,8 @@ public class CityPlayerController : MonoBehaviour {
 		Debug.Log ("CityTrigger");
 		if (other.gameObject.CompareTag ("SteinMamba")) {
 			other.gameObject.SetActive (false);
-//			transform.GetChild (0).gameObject.SetActive (false);
-//			transform.GetChild (1).gameObject.SetActive (true);
+			transform.GetChild (0).gameObject.SetActive (false);
+			transform.GetChild (1).gameObject.SetActive (true);
 
 			GetComponent<PlayerController> ().hasKey = true;
 			GetComponent<PlayerController> ().targetImage.sprite = littleWhiteRabbit;

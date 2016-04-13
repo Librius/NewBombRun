@@ -5,7 +5,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float default_speed;
-	private float speed;
+	public float speed;
 	public Text resultText;
 
 	private Rigidbody rb;
