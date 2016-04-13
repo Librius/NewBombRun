@@ -22,6 +22,6 @@ public class LogoMobileVideoPlayer : MonoBehaviour {
 		//Play full screen only
 		Handheld.PlayFullScreenMovie (movieFileName,  backgroundColor, controlMod,scalingMod);
 		#endif
-		Application.LoadLevel("MainMenu");
+		Application.LoadLevel("MenuScene");
 	}
 }

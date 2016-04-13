@@ -29,17 +29,25 @@ public class PlayerController : MonoBehaviour {
 	public AudioSource hurtSound;
 
 	public IconProgressBar healthBar;
-	private float currentHealth;
+	public static float currentHealth;
+	public static int HEALTH_MAX = 5;
 
 	public Image targetImage;
 	public Sprite treasureBox;
 
 	public GameObject targetTreasureBox;
 
-	private bool hasRocket = false;
-	private int RocketInStock = 0;
-	private const int ROCKET_MAX = 3;
+	public static bool hasRocket = false;
+	public static int RocketInStock = 0;
+	public static int ROCKET_MAX = 3;
 	public Text rocketText;
+
+
+	public static bool RocketHint;
+	public static bool HealthHint;
+
+	private Image KeyHint;
+	public GameObject canvas;
 
 	Animator anim;
 	void Start ()
@@ -49,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		speed = default_speed;
 //		healthBar.currentValue = 1;
-		currentHealth = 5;
+		currentHealth = HEALTH_MAX;
 //		arrow.GetComponents<WaitForSecondsExample> () [0].show = false;
 //		Debug.Log (currentHealth);
 
@@ -60,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
+		healthBar.currentValue = currentHealth;
 		rocketText.text = "X " + RocketInStock;
 
 //		Debug.Log (speed);
@@ -173,6 +182,18 @@ public class PlayerController : MonoBehaviour {
 //		pos.y = Vector3.Dot(Input.gyro.gravity, Vector3.up) * tiltSpeed;
 //		transform.position = pos;
 
+		//show key hint
+		if (KeyHint != null) 
+		{
+			KeyHint.transform.position = Vector3.MoveTowards (KeyHint.transform.position, targetImage.transform.position, 5);
+		}
+		if (KeyHint.transform.position.Equals (targetImage.transform.position)) 
+		{
+			targetImage.sprite = treasureBox;
+			KeyHint.gameObject.SetActive (false);
+			KeyHint = null;
+		}
+
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -222,7 +243,12 @@ public class PlayerController : MonoBehaviour {
 		{
 			other.gameObject.SetActive (false);
 			hasKey = true;
-			targetImage.sprite = treasureBox;
+
+			KeyHint = Instantiate (targetImage) as Image;
+			KeyHint.transform.SetParent (canvas.transform);
+			KeyHint.transform.localPosition = new Vector3 (0, 0, 0);
+
+			//targetImage.sprite = treasureBox;
 
 			GameObject arrow = transform.FindChild ("arrow").gameObject;
 			arrow.GetComponents<ArrowController> () [0].target = targetTreasureBox;
@@ -242,21 +268,25 @@ public class PlayerController : MonoBehaviour {
 
 //			GameObject arrow = transform.FindChild ("arrow_z").gameObject;
 //			arrow.GetComponents<WaitForSecondsExample> () [0].show = true;
-			hasRocket = true;
-			RocketInStock = ROCKET_MAX;
+
+//			hasRocket = true;
+//			RocketInStock = ROCKET_MAX;
+
+			RocketHint = true;
 		}
 		if (other.gameObject.CompareTag ("AidBox")) 
 		{
 			other.gameObject.SetActive (false);
-			currentHealth = 5;
-			healthBar.currentValue = currentHealth;
+//			currentHealth = HEALTH_MAX;
+//			healthBar.currentValue = currentHealth;
+			HealthHint = true;
 		}
-		if (other.gameObject.CompareTag ("SteinMamba")) {
-			other.gameObject.SetActive (false);
-			transform.GetChild (0).gameObject.SetActive (false);
-			transform.GetChild (1).gameObject.SetActive (true);
-		}
-			
+//		if (other.gameObject.CompareTag ("SteinMamba")) {
+//			other.gameObject.SetActive (false);
+//			transform.GetChild (0).gameObject.SetActive (false);
+//			transform.GetChild (1).gameObject.SetActive (true);
+//		}
+//			
 	}
 
 //	void showWin(){
