@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour {
 		//show key hint
 		if (KeyHint != null) 
 		{
-			KeyHint.transform.position = Vector3.MoveTowards (KeyHint.transform.position, targetImage.transform.position, 5);
+			KeyHint.transform.position = Vector3.MoveTowards (KeyHint.transform.position, targetImage.transform.position, 10);
 		}
 		if (KeyHint!=null && KeyHint.transform.position.Equals (targetImage.transform.position)) 
 		{

@@ -28,7 +28,7 @@ public class GetToolHint : MonoBehaviour {
 		}
 		if (rh != null) 
 		{
-			rh.transform.position = Vector3.MoveTowards (rh.transform.position, RocketDestination.transform.position, 5);
+			rh.transform.position = Vector3.MoveTowards (rh.transform.position, RocketDestination.transform.position, 10);
 		}
 		if (rh != null && rh.transform.position.Equals (RocketDestination.transform.position)) 
 		{
@@ -47,7 +47,7 @@ public class GetToolHint : MonoBehaviour {
 		}
 		if (hh != null) 
 		{
-			hh.transform.position = Vector3.MoveTowards (hh.transform.position, HealthDestination.transform.position, 5);
+			hh.transform.position = Vector3.MoveTowards (hh.transform.position, HealthDestination.transform.position, 10);
 		}
 		if (hh != null && hh.transform.position.Equals (HealthDestination.transform.position)) 
 		{
