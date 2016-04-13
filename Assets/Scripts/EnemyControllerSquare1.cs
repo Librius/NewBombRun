@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyControllerSquare : MonoBehaviour {
+public class EnemyControllerSquare1 : MonoBehaviour {
 
-	public float speed;
+	public float speed = 20.0f;
 	private Vector3 movement;
 	private bool flag = false;
 
