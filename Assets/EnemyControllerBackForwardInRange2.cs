@@ -14,7 +14,7 @@ public class EnemyControllerBackForwardInRange2 : MonoBehaviour {
 	void Update()
 	{
 		transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		if ( transform.localPosition.x > -733 && !flag) {
+		if ( transform.localPosition.x > -740 && !flag) {
 			//			Debug.Log ("2");
 			transform.Rotate (0, 180, 0);
 			flag = !flag;
