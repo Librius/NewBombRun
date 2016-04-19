@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour {
 	private Image KeyHint;
 	public GameObject canvas;
 
+	public Text TimeText;
+	public static int TimeRemain = 10;
+
 	Animator anim;
 	void Start ()
 	{
@@ -64,6 +67,8 @@ public class PlayerController : MonoBehaviour {
 //		Debug.Log(arrow.GetComponents<ArrowController> ()[0].ToString ());
 
 		anim = GetComponent<Animator> ();
+		TimeText.text = "time remaining: "+TimeRemain+" s";
+		InvokeRepeating("reduceTime",0.0f,1.0f);
 	}
 
 	void Update ()
@@ -294,4 +299,16 @@ public class PlayerController : MonoBehaviour {
 //		resultText.text = "Loading Next Level ...";
 //		speed = 0;
 //	}
+
+	void reduceTime()
+	{
+		if(TimeRemain>0)
+			TimeRemain--;
+		TimeText.text = "time remaining: "+TimeRemain+" s";
+		if (TimeRemain == 0) 
+		{
+			speed = 0;
+			anim.SetTrigger("RabbitGameOver");
+		}
+	}
 }
