@@ -59,9 +59,9 @@ public class EasyMenuScript : MonoBehaviour {
 		if (LinesPosition == "center") {Lines.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2,Screen.height/2,9.99f));}
 		if (LinesPosition == "bottom") {Lines.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2,0,9.99f));}
 
-		logo.GetComponent<SpriteRenderer> ().sprite = Logo;
-		logo.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2,Screen.height/1.2f,9.98f));
-		logo.GetComponent<SpriteRenderer> ().enabled = LogoOn;
+//		logo.GetComponent<SpriteRenderer> ().sprite = Logo;
+//		logo.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2,Screen.height/1.2f,9.98f));
+//		logo.GetComponent<SpriteRenderer> ().enabled = LogoOn;
 
 		fallingEl.GetComponent<SpriteRenderer>().sprite = FallingElement;
 		fallingEl.GetComponent<SpriteRenderer> ().enabled = FallingElementsON;
