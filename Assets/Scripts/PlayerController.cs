@@ -231,6 +231,7 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log ("there");
 		if (other.gameObject.CompareTag ("Treasure Box"))
 		{
+			Debug.Log ("Treasure Box");
 			speed = 0;
 			//other.gameObject.SetActive (false);
 			other.gameObject.GetComponent<Animator>().SetBool("Open",true);
