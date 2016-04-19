@@ -14,12 +14,12 @@ public class EnemyControllerBackForwardInRange : MonoBehaviour {
 	void Update()
 	{
 		transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		if ( transform.localPosition.z > -330 && !flag) {
+		if ( transform.localPosition.z > -75 && !flag) {
 			//			Debug.Log ("2");
 			transform.Rotate (0, 180, 0);
 			flag = !flag;
 		}
-		if ( transform.localPosition.z < -402 && flag) {
+		if ( transform.localPosition.z < -132 && flag) {
 			//			Debug.Log ("2");
 			transform.Rotate (0, 180, 0);
 			flag = !flag;
