@@ -71,3 +71,6 @@ var MainMenu : Rect = Rect(80, 80, 1200, 1200);
  	Application.LoadLevel("MenuScene");
  }
 
+ function ForestBtnClicked(){
+ 	Application.LoadLevel("Forest");
+ }

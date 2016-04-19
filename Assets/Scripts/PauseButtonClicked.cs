@@ -12,8 +12,8 @@ public class PauseButtonClicked : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (Time.time);
-		Debug.Log (pause);
+//		Debug.Log (Time.time);
+//		Debug.Log (pause);
 		if (pause) {
 			Time.timeScale = 0;
 			pause = false;
