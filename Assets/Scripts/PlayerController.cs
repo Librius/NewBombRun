@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour {
 	public GameObject canvas;
 
 	public Text TimeText;
-	public static int TimeRemain = 10;
+
+	public int InitTime;
+	public static int TimeRemain;
 
 	Animator anim;
 	void Start ()
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour {
 //		Debug.Log(arrow.GetComponents<ArrowController> ()[0].ToString ());
 
 		anim = GetComponent<Animator> ();
+		TimeRemain = InitTime;
 		TimeText.text = "time remaining: "+TimeRemain+" s";
 		InvokeRepeating("reduceTime",0.0f,1.0f);
 	}
