@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 	Animator anim;
 	void Start ()
 	{
+		Time.timeScale = 1;
 		shot = bombBall;
 		Debug.Log ("Start");
 		rb = GetComponent<Rigidbody>();
