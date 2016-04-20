@@ -259,6 +259,19 @@ public class PlayerController : MonoBehaviour {
 			//showWin ();
 			//hasKey = true;
 		}
+		if (other.gameObject.CompareTag ("LittleWhiteRabbit"))
+		{
+			speed = 0;
+			WinText.text = "Level Completed!\n" + 
+				"Health Points: "+currentHealth*100+"\nTime Points: "+TimeRemain*10 +"\nTotal: "+(currentHealth*100+TimeRemain*10);
+			Color color = TimeText.color;
+			color.a = 0.0f;
+			TimeText.color = color;
+			anim.SetTrigger("RabbitGameSuccess");
+			//			Debug.Log ("Here");
+			//showWin ();
+			//hasKey = true;
+		}
 		if (other.gameObject.CompareTag ("Key"))
 		{
 			other.gameObject.SetActive (false);
