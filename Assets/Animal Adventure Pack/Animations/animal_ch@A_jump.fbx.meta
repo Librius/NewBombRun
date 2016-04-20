@@ -55,7 +55,7 @@ ModelImporter:
     400046: animal_toe_L_joint
     400048: animal_toe_R_joint
     400050: animal_head_joint
-    7400000: Take 001
+    7400000: A_jump
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -77,7 +77,85 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: A_jump
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: animal_spine_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_L_joint/animal_foot_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_L_joint/animal_foot_L_joint/animal_toe_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_R_joint/animal_foot_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_leg_R_joint/animal_foot_R_joint/animal_toe_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_tail_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_tail_joint/animal_tail2_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_tail_joint/animal_tail2_joint/animal_tail3_joint
+        weight: 1
+      - path: animal_spine_joint/animal_hips_joint/animal_tail_joint/animal_tail2_joint/animal_tail3_joint/animal_tail4_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_head_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_head_joint/animal_ear_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_head_joint/animal_ear_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_head_joint/animal_mouth_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_L_joint/animal_arm_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_L_joint/animal_arm_L_joint/animal_forearm_L_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_R_joint/animal_arm_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_R_joint/animal_arm_R_joint/animal_forearm_R_joint
+        weight: 1
+      - path: animal_spine_joint/animal_spine2_joint/animal_shoulder_R_joint/animal_arm_R_joint/animal_forearm_R_joint/animal_ch_R_hand_position
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
