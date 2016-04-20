@@ -17,6 +17,7 @@ public class PauseButtonClicked : MonoBehaviour {
 		if (pause) {
 			Time.timeScale = 0;
 			pause = false;
+			Debug.Log (pause);
 		}
 	}
 
@@ -28,7 +29,7 @@ public class PauseButtonClicked : MonoBehaviour {
 	public void ResumeClicked(){
 		Time.timeScale = 1;
 		Debug.Log (pause);
-//		canvas.GetComponent<Animator> ().SetTrigger ("GameResume");
+		canvas.GetComponent<Animator> ().SetTrigger ("GameResume");
 	}
 
 	IEnumerator Wait ()

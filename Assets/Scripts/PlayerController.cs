@@ -360,7 +360,7 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator Failure()
 	{
 		anim.SetTrigger("RabbitGameOver");
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(4.0f);
 		failure = true;
 	}
 }
