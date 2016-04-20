@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour {
 
 	public Text WinText;
 
+	private bool success = false;
+	private bool failure = false;
+
 	Animator anim;
 	void Start ()
 	{
@@ -78,6 +81,11 @@ public class PlayerController : MonoBehaviour {
 
 	void Update ()
 	{
+
+		if (success||failure) {
+			Time.timeScale = 0;
+		}
+
 		healthBar.currentValue = currentHealth;
 		rocketText.text = "X " + RocketInStock;
 
@@ -224,7 +232,7 @@ public class PlayerController : MonoBehaviour {
 				Color color = TimeText.color;
 				color.a = 0.0f;
 				TimeText.color = color;
-				anim.SetTrigger("RabbitGameOver");
+				StartCoroutine (Failure());
 			}
 //			healthBar.currentValue = GUILayout.HorizontalSlider(healthBar.currentValue, currentHealth, healthBar.maxValue);
 //			Application.LoadLevel (Application.loadedLevel);
@@ -254,7 +262,7 @@ public class PlayerController : MonoBehaviour {
 			Color color = TimeText.color;
 			color.a = 0.0f;
 			TimeText.color = color;
-			anim.SetTrigger("RabbitGameSuccess");
+			StartCoroutine (Success());
 //			Debug.Log ("Here");
 			//showWin ();
 			//hasKey = true;
@@ -267,7 +275,7 @@ public class PlayerController : MonoBehaviour {
 			Color color = TimeText.color;
 			color.a = 0.0f;
 			TimeText.color = color;
-			anim.SetTrigger("RabbitGameSuccess");
+			StartCoroutine (Success());
 			//			Debug.Log ("Here");
 			//showWin ();
 			//hasKey = true;
@@ -340,5 +348,19 @@ public class PlayerController : MonoBehaviour {
 			TimeText.color = color;
 			anim.SetTrigger("RabbitGameOver");
 		}
+	}
+
+	IEnumerator Success()
+	{
+		anim.SetTrigger("RabbitGameSuccess");
+		yield return new WaitForSeconds(2.0f);
+		success = true;
+	}
+
+	IEnumerator Failure()
+	{
+		anim.SetTrigger("RabbitGameOver");
+		yield return new WaitForSeconds(2.0f);
+		failure = true;
 	}
 }

@@ -26,8 +26,9 @@ public class PauseButtonClicked : MonoBehaviour {
 	}
 
 	public void ResumeClicked(){
-		Debug.Log ("Resume Clicked");
-		canvas.GetComponent<Animator> ().SetTrigger ("GameResume");
+		Time.timeScale = 1;
+		Debug.Log (pause);
+//		canvas.GetComponent<Animator> ().SetTrigger ("GameResume");
 	}
 
 	IEnumerator Wait ()
