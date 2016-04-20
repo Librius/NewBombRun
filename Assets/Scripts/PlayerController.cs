@@ -50,7 +50,11 @@ public class PlayerController : MonoBehaviour {
 	public GameObject canvas;
 
 	public Text TimeText;
-	public static int TimeRemain = 10;
+
+	public int InitTime;
+	public static int TimeRemain;
+
+	public Text WinText;
 
 	Animator anim;
 	void Start ()
@@ -67,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 //		Debug.Log(arrow.GetComponents<ArrowController> ()[0].ToString ());
 
 		anim = GetComponent<Animator> ();
+		TimeRemain = InitTime;
 		TimeText.text = "time remaining: "+TimeRemain+" s";
 		InvokeRepeating("reduceTime",0.0f,1.0f);
 	}
@@ -216,6 +221,9 @@ public class PlayerController : MonoBehaviour {
 			speed = default_speed;
 			if (currentHealth <= 0) {
 				speed = 0;
+				Color color = TimeText.color;
+				color.a = 0.0f;
+				TimeText.color = color;
 				anim.SetTrigger("RabbitGameOver");
 			}
 //			healthBar.currentValue = GUILayout.HorizontalSlider(healthBar.currentValue, currentHealth, healthBar.maxValue);
@@ -241,6 +249,11 @@ public class PlayerController : MonoBehaviour {
 			//other.gameObject.SetActive (false);
 			other.gameObject.GetComponent<Animator>().SetBool("Open",true);
 			other.gameObject.GetComponent<TreasureBoxManager>().open = 1;
+			WinText.text = "Level Completed!\n" + 
+				"Health Points: "+currentHealth*100+"\nTime Points: "+TimeRemain*10 +"\nTotal: "+(currentHealth*100+TimeRemain*10);
+			Color color = TimeText.color;
+			color.a = 0.0f;
+			TimeText.color = color;
 			anim.SetTrigger("RabbitGameSuccess");
 //			Debug.Log ("Here");
 			//showWin ();
@@ -309,6 +322,9 @@ public class PlayerController : MonoBehaviour {
 		if (TimeRemain == 0) 
 		{
 			speed = 0;
+			Color color = TimeText.color;
+			color.a = 0.0f;
+			TimeText.color = color;
 			anim.SetTrigger("RabbitGameOver");
 		}
 	}
