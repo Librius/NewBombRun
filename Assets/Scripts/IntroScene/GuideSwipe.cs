@@ -2,10 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GuideSwipe : MonoBehaviour {
+public class GuideSwipe : MonoBehaviour
+{
 	public Text hint;
 	public Image img;
-	public float fadeSpeed = 1000000f;
+	public float fadeSpeed = 5f;
 	public bool entrance;
 	public GameObject canvas;
 	public float minSwipeDistX;
@@ -14,33 +15,33 @@ public class GuideSwipe : MonoBehaviour {
 
 	static bool flag = false;
 
-	void Awake(){
-		hint = canvas.GetComponentInChildren<Text> ();
-		hint.color = Color.clear;
+	void Awake ()
+	{
+//		hint = canvas.GetComponentInChildren<Text> ();
+//		hint.color = Color.clear;
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 	}
 
 	// Update is called once per frame
-	void Update () {	
-		ColorChange ();	
+	void Update ()
+	{	
+//		ColorChange ();	
 		ShowImage ();
 
-//		if (Input.acceleration.x != 0) {
+//		if (Input.GetKeyDown (KeyCode.RightArrow)) {
 //			entrance = false;
 //		}
-
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
-			entrance = false;
-		}
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			entrance = false;			
-		}
+//		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+//			entrance = false;			
+//		}
 
 		if (Input.touchCount > 0) {
+			
 			Touch touch = Input.touches [0];
 
 			switch (touch.phase) {
@@ -64,23 +65,25 @@ public class GuideSwipe : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider col){
-		if(!flag)
-		{
+	void OnTriggerEnter (Collider col)
+	{
+		if (!flag) {
 			if (col.gameObject.name == "rabbit")
 				entrance = true;	
 			flag = true;
 		}
 	}
 
-	void OnTriggerExit(Collider col){
+	void OnTriggerExit (Collider col)
+	{
 		if (col.gameObject.name == "rabbit")
 			entrance = false;			
 	}
 
-	void ColorChange(){
+	void ColorChange ()
+	{
 		if (entrance) {
-			hint.color = Color.Lerp (hint.color, Color.white, 2 * Time.deltaTime);
+			hint.color = Color.Lerp (hint.color, Color.white, fadeSpeed * Time.deltaTime);
 		}
 
 		if (!entrance) {
@@ -88,12 +91,13 @@ public class GuideSwipe : MonoBehaviour {
 		}
 	}
 
-	void ShowImage(){
+	void ShowImage ()
+	{
 		if (entrance)
-			canvas.GetComponent<CanvasGroup>().alpha = 1f;
-		else if(!entrance)
-			canvas.GetComponent<CanvasGroup>().alpha = 0f;
-		}
+			canvas.GetComponent<CanvasGroup> ().alpha = 1f;
+		else if (!entrance)
+			canvas.GetComponent<CanvasGroup> ().alpha = 0f;
+	}
 
 
 }
