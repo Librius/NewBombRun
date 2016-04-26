@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	public AudioSource shootSound;
 	public AudioSource swipeSound;
 	public AudioSource hurtSound;
+	public AudioSource toolSound;
 
 	public IconProgressBar healthBar;
 	public static float currentHealth;
@@ -263,6 +264,7 @@ public class PlayerController : MonoBehaviour {
 			Color color = TimeText.color;
 			color.a = 0.0f;
 			TimeText.color = color;
+			toolSound.Play ();
 			StartCoroutine (Success());
 //			Debug.Log ("Here");
 			//showWin ();
@@ -276,6 +278,7 @@ public class PlayerController : MonoBehaviour {
 			Color color = TimeText.color;
 			color.a = 0.0f;
 			TimeText.color = color;
+			toolSound.Play ();
 			StartCoroutine (Success());
 			//			Debug.Log ("Here");
 			//showWin ();
@@ -285,6 +288,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			other.gameObject.SetActive (false);
 			hasKey = true;
+
+			toolSound.Play ();
 
 			KeyHint = Instantiate (targetImage) as Image;
 			KeyHint.transform.SetParent (canvas.transform);
@@ -300,6 +305,8 @@ public class PlayerController : MonoBehaviour {
 //			print ("here");
 			other.gameObject.SetActive (false);
 
+			toolSound.Play ();
+
 			GameObject arrow = transform.FindChild ("arrow").gameObject;
 			arrow.GetComponents<WaitForSecondsExample> () [0].show = true;
 		}
@@ -307,6 +314,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			//			print ("here");
 			other.gameObject.SetActive (false);
+
+			toolSound.Play ();
 
 //			GameObject arrow = transform.FindChild ("arrow_z").gameObject;
 //			arrow.GetComponents<WaitForSecondsExample> () [0].show = true;
@@ -321,6 +330,8 @@ public class PlayerController : MonoBehaviour {
 			other.gameObject.SetActive (false);
 //			currentHealth = HEALTH_MAX;
 //			healthBar.currentValue = currentHealth;
+
+			toolSound.Play ();
 			HealthHint = true;
 		}
 //		if (other.gameObject.CompareTag ("SteinMamba")) {

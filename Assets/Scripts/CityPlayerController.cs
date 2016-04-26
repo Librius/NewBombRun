@@ -6,6 +6,7 @@ public class CityPlayerController : MonoBehaviour {
 	public Sprite littleWhiteRabbit;
 	public GameObject finalGoal;
 	public Canvas canvas;
+	public AudioSource toolSound;
 	// Use this for initialization
 	void Start () {
 	
@@ -24,6 +25,8 @@ public class CityPlayerController : MonoBehaviour {
 			transform.GetChild (0).gameObject.SetActive (false);
 			transform.GetChild (1).gameObject.SetActive (true);
 
+			toolSound.Play ();
+
 			GetComponent<PlayerController> ().hasKey = true;
 			GetComponent<PlayerController> ().targetImage.sprite = littleWhiteRabbit;
 
@@ -33,6 +36,9 @@ public class CityPlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("LittleWhiteRabbit"))
 		{
 			Debug.Log ("Win");
+
+			toolSound.Play ();
+
 			GetComponent<PlayerController> ().speed = 0;
 			transform.GetChild (0).gameObject.SetActive (true);
 			transform.GetChild (1).gameObject.SetActive (false);
